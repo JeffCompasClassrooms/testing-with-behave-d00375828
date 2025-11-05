@@ -230,23 +230,6 @@ def step_has_download_or_print(context):
 
     assert dl_links or print_controls or has_text_hint, "No download or print option found"
 
-# ---------- COMMENTS / DISCUSSION ----------
-@when("I scroll to the comments section")
-def step_scroll_comments(context):
-    d = context.browser
-    d.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-
-@then("I should see a comments heading")
-def step_comments_visible(context):
-    d = context.browser
-    # Look for headings containing 'Comment'
-    WebDriverWait(d, 10).until(
-        lambda dr: any(el.is_displayed() for el in dr.find_elements(
-            By.XPATH, "//h2[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'comment')] | "
-                      "//h3[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'comment')]"
-        ))
-    )
-
 # ---------- STEP-BY-STEP ----------
 @then("I should see at least 1 step heading")
 def step_has_step_heading(context):

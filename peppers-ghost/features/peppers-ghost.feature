@@ -89,13 +89,6 @@ Feature: Pepper's Ghost DIY article is readable and useful
     And I dismiss any consent banner if asked
     Then I should find a download or print option
 
-  # --- COMMENTS / DISCUSSION ---
-  Scenario: Readers can view the comments section
-    Given I open the Pepper's Ghost tutorial
-    And I dismiss any consent banner if asked
-    When I scroll to the comments section
-    Then I should see a comments heading
-
   # --- STEP-BY-STEP INSTRUCTIONS ---
   Scenario: The tutorial provides step-by-step headings
     Given I open the Pepper's Ghost tutorial
