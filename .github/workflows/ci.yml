@@ -22,7 +22,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install behave pytest pytest-describe requests
 
-      - name: Run tests
+      - name: Run tests for isitchristmas
+        working-directory: isitchristmas
         run: |
-          pytest -m behave
+          python -m behave
+
+      - name: Run tests for peppers-ghost
+        working-directory: peppers-ghost
+        run: |
+          python -m behave
 
