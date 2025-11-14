@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install behave pytest pytest-describe requests
+          pip install behave pytest pytest-describe requests behave-webdriver selenium
 
       - name: Run tests for isitchristmas
         working-directory: isitchristmas
@@ -31,4 +31,3 @@ jobs:
         working-directory: peppers-ghost
         run: |
           python -m behave
-
