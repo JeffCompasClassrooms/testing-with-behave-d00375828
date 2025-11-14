@@ -22,14 +22,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install behave selenium
 
-      # Install Chrome + matching ChromeDriver
       - name: Install Chrome and ChromeDriver
         uses: browser-actions/setup-chrome@v2
         with:
           install-dependencies: true
           install-chromedriver: true
 
+      - name: Install Xvfb
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb
+
       - name: Run Behave tests for peppers-ghost
         working-directory: peppers-ghost
         run: |
-          python -m behave
+          xvfb-run -a python -m behave
